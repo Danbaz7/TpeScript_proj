@@ -10,22 +10,22 @@ interface Validatable {
 
 function validate(validatableInput: Validatable) {
   let isValid = true;
-  if (validatableInput.required) {
-    isValid = isValid && validatableInput.value?.toString().trim.length !== 0;
+  if (validatableInput.required && validatableInput.value) {
+    isValid = isValid && validatableInput.value.toString().trim().length !== 0;
   }
   if (
     validatableInput.minLength != null &&
     typeof validatableInput.value === "string"
   ) {
     isValid =
-      isValid && validatableInput.value.length > validatableInput.minLength;
+      isValid && validatableInput.value.length >= validatableInput.minLength;
   }
   if (
     validatableInput.maxLength != null &&
     typeof validatableInput.value === "string"
   ) {
     isValid =
-      isValid && validatableInput.value.length < validatableInput.maxLength;
+      isValid && validatableInput.value.length <= validatableInput.maxLength;
   }
   if (
     validatableInput.min != null &&
@@ -134,7 +134,6 @@ class ProjectInput {
   @autobind
   private submitHandler(event: Event) {
     event.preventDefault();
-    console.log(this.titleInputElement.value);
     const userInput = this.gatherUserInput();
     if (Array.isArray(userInput)) {
       const [title, des, peep] = userInput;
