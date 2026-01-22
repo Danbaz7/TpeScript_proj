@@ -1,3 +1,5 @@
+[VIEW APP](https://loquacious-muffin-8482f0.netlify.app/)
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c43619f2-67ed-4042-b721-32a9521dda8b/deploy-status)](https://app.netlify.com/projects/loquacious-muffin-8482f0/deploys)
 
 # TypeScript Project Management App
